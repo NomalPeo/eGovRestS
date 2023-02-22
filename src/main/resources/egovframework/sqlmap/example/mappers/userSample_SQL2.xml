@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="egovframework.user.service.impl.UserDAO">
+	
+	<select id="getAllUser" resultType="userVO">
+		select * from userSample order by id desc
+	</select>
+	
+	<select id="getUser" resultType="userVO">
+		select * from userSample where id = #{id}
+	</select>
+	
+	<delete id="delUser">
+		delete from userSample where id = #{id}
+	</delete>
+	
+	<insert id="writeUser">
+		insert into userSample(id,name,nickName,pwd) values(#{id},#{name},#{nickName},#{pwd})
+	</insert>
+
+	<update id="userUpdate">
+		update userSample set id=#{id}, nickName=#{nickName}, pwd=#{pwd} where name=#{name}
+	</update>
+</mapper>
